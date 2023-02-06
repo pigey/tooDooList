@@ -8,51 +8,70 @@
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
           crossorigin="anonymous" />
+    <style>
+        body{
+            background-color: lightskyblue;
+        }
+
+        .content{
+            border: black 3px solid;
+            width: 40%;
+            height: auto;
+            margin-top: 5%;
+            background-color: darkgray;
+        }
+        .myPicture{
+            height: auto;
+            width: auto;
+            max-height: 5%;
+            max-width: 5%;
+        }
+        .btnColor{
+            background-color: grey;
+        }
+    </style>
 </head>
 <body>
 
-<div class="container-fluid text-center">
+<a th:href="@{/}">
+    <img th:src="@{/static/images/giraffe.jpg}" alt="404 picture not found" class="myPicture">
+</a>
+<div class="container-fluid text-center content">
 
     <form th:action="@{/login}"
           method="post"
           style ="max-width: 350px; margin: 0 auto">
 
 
-        <a th:href="@{/}">HomePage</a>
-
         <div th:if="${param.error}" >
             <p class="text-danger" >[[${session.SPRING_SECURITY_LAST_EXCEPTION.message}]] </p>
         </div>
 
-        <div th:if="${param.logout}" >
-            <p class="text-primary">You have been logged out. </p>
-        </div>
 
-
-        <div class="border border-secondary p-3 rounded">
+        <div>
 
             <!-- Username input -->
-            <div>
+            <div style="margin-top: 5%">
                 <input name="username" placeholder="username here..." type="text" class="form-control" required autofocus>
 
             </div>
 
 
-            <div>
+            <div style="margin-top: 5%">
                 <input name="password" placeholder="password here..." type="password" class="form-control" required autofocus>
             </div>
 
 
 
 
-            <div>
+            <div style="margin-top: 5%">
 
                 <input type="checkbox" name="remember-me" />&nbsp;Remember Me
 
 
                 <input  type="submit"
                         value="Login"
-                        class="btn btn-primary" />
+                        class="btn btnColor" />
 
             </div>
         </div>

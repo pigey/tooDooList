@@ -8,8 +8,7 @@ public class UserModelDTO {
     private final String username;
 
 
-
-    public UserModelDTO(UserModel userModel) {
+    public UserModelDTO(UserModel userModel, UserModel userModel1) {
         this.username = userModel.getUsername();
     }
 

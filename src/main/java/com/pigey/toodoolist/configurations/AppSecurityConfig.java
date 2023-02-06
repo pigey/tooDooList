@@ -31,7 +31,7 @@ public class AppSecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                //.csrf().disable() //kan orsaka 403 forbidden fel. säkerhet sak som man tar bort
+
                 .authorizeHttpRequests(
                         authorizeHttpRequests ->{
                             authorizeHttpRequests

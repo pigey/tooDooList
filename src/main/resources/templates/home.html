@@ -3,19 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
+    <style>
+        body{
+            background-color: lightskyblue;
+        }
+        h1{
+            text-align: center;
+        }
+        .border{
+            border: black 4px solid;
+            display: grid;
+            align-content: center;
+            justify-content: space-evenly;
+            grid-template-columns: auto auto auto;
+            width: 75%;
+            margin-left: 10%;
+        }
+        .login{
+            font-weight: bold;
+            font-size: larger;
+        }
+        .register{
+            font-weight: bold;
+            font-size: larger;
+
+        }
+        .tooDo{
+            font-weight: bold;
+            font-size: larger;
+
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        a:hover{
+            color: greenyellow;
+        }
+        .logout{
+            margin-top: 5%;
+            margin-left: 46%;
+        }
+        .buttonLogout{
+            height: 60px;
+            width: 80px;
+        }
+    </style>
 </head>
 <body>
 
     <h1>Home page</h1>
 
-    <a th:href="@{/register}">Register an account</a>
-    <br>
-    <a th:href="@{/login}">Login!</a>
-    <br>
-    <a th:href="@{/tooDoCards}">Go to your tooDo cards!</a>
+    <div class="border">
+        <div class="register">
+            <a th:href="@{/register}">
+            <p>Register an account</p>
+            </a>
+            <br>
+        </div>
 
+        <div class="login">
+            <a th:href="@{/login}">
+            <p>Login!</p>
+            </a>
+            <br>
+        </div>
+            <div class="tooDo">
+                <a th:href="@{/tooDoCards}">
+                <p>Go to your tooDo cards!</p>
+                </a>
+        </div>
+
+    </div>
+<div class="logout">
     <form th:action="@{logout}" method="post">
-        <input type="submit" value="Logout">
+        <input class="buttonLogout" type="submit" value="Logout">
     </form>
+</div>
+
+
+
 </body>
 </html>

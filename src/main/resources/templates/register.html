@@ -3,15 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <title>Register page</title>
-
+  <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+        crossorigin="anonymous" />
   <style>
+    body{
+      background-color: lightskyblue;
+    }
     .error{
       color: red;
+    }
+    .content{
+      border: black 3px solid;
+      width: 40%;
+      height: auto;
+      margin-top: 5%;
+      background-color: darkgray;
+    }
+    .myPicture{
+      height: auto;
+      width: auto;
+      max-height: 5%;
+      max-width: 5%;
     }
   </style>
 </head>
 <body>
-<div>
+<a th:href="@{/}">
+  <img th:src="@{/static/images/giraffe.jpg}" alt="404 picture not found" class="myPicture">
+</a>
+<div class="content container-fluid text-center">
 
   <form th:action="@{/register}" th:object="${userModel}" method="post">
 

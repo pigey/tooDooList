@@ -1,12 +1,90 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Too do cards</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" >
+    <title >TooDo cards </title >
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+          crossorigin="anonymous" />
+    <style>
+        body{
+            background-color: lightskyblue;
+        }
+        .writeTooDo{
+            width: 50%;
+            background-color: darkgray;
+        }
+        .tooDoColor{
+            color: white;
+        }
+        .grid-container {
+            position: relative;
+            width: 100%;
+            top: 30%;
+            display: grid;
+            justify-content: space-evenly;
+            grid-template-columns: auto auto auto;
+            gap: 5px;
+            padding: 10px;
+        }
+
+        .grid-item {
+            display: grid;
+            gap: 10px;
+            width: 350px;
+            background-color: black;
+            margin: 10px;
+            padding: 10px;
+        }
+        .grid-item-name{
+            color: white;
+            height: 20px;
+        }
+        .grid-item-desc{
+            color: white;
+            height: 150px;
+        }
+        .myPicture{
+            height: auto;
+            width: auto;
+            max-height: 5%;
+            max-width: 5%;
+        }
+
+    </style>
 </head>
 <body>
+<div>
+    <a th:href="@{/}">
+    <img th:src="@{/static/images/giraffe.jpg}" alt="404 picture not found" class="myPicture">
+    </a>
+</div>
+<form class="container-fluid text-center border border-secondary p-3 rounded writeTooDo" th:action="@{/tooDoCards}" th:object="${tooDoModel}" method="post">
 
-<a th:href="@{/}">HomePage</a>
-  <h1>You need to have a role to be here!</h1>
+    <div>
+        <p class="tooDoColor">TooDo List</p>
+        <textarea th:field="*{listInformation}" type="text" placeholder="Write Your TooDo information here!" rows="4" cols="50" maxlength="200"/>
+        <!-- Display error -->
+        <p th:if="${ #fields.hasErrors('listInformation')}"
+           th:errors="*{listInformation}"
+           th:errorclass="error"
+        ></p>
+    </div>
+
+    <input type="submit" value="Publish">
+
+</form>
+
+<div class ="grid-container">
+    <div class="grid-item" th:each="tooDoModel:${allCards}">
+        <p class="grid-item-name" th:text="${tooDoModel.getAuthor()}"/>
+        <p class="grid-item-desc" th:text="${tooDoModel.getListInformation()}"/>
+
+    </div>
+</div>
+
+
 </body>
 </html>
