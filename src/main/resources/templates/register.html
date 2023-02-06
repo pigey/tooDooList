@@ -50,13 +50,13 @@
     <div>
       <p>Password</p>
       <input th:field="*{password}" type="password" placeholder="write your password here!">
-      <ul>
-        <li th:each="error : ${#fields.errors('password')}"
+
+        <p th:each="error : ${#fields.errors('password')}"
             th:text="${error}"
             class="error">
 
-        </li>
-      </ul>
+        </p>
+
     </div>
     <input type="submit" value="Register">
 

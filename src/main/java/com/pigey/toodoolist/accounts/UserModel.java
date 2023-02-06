@@ -19,10 +19,10 @@ public class UserModel implements UserDetails {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @NotEmpty
-    @Size(min = 2, max = 50)
+    @Size(min = 2, max = 20)
     private String username;
     @NotEmpty
-    @Size(min = 6, max = 255)
+    @Size(min = 6, max = 250)
     private String password;
     @ElementCollection(fetch = FetchType.EAGER)
     private Set<SimpleGrantedAuthority> authorities;
