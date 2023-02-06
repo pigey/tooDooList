@@ -8,5 +8,14 @@
 
     <h1>Home page</h1>
 
+    <a th:href="@{/register}">Register an account</a>
+    <br>
+    <a th:href="@{/login}">Login!</a>
+    <br>
+    <a th:href="@{/tooDoCards}">Go to your tooDo cards!</a>
+
+    <form th:action="@{logout}" method="post">
+        <input type="submit" value="Logout">
+    </form>
 </body>
 </html>
