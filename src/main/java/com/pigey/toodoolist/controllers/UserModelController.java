@@ -48,7 +48,6 @@ public class UserModelController {
         userModel.setCredentialsNonExpired(true);
         userModel.setEnabled(true);
         userModel.setAccountNonLocked(true);
-        System.out.println(userModel);
         userModelRepository.save(userModel);
 
         return "/home";
