@@ -39,7 +39,7 @@
 
     <div>
       <p>Username</p>
-      <input th:field="*{username}" type="text" placeholder="write your username here!">
+      <input th:field="*{username}" type="text" placeholder="Username...">
       <!-- Display error -->
       <p th:if="${ #fields.hasErrors('username')}"
          th:errors="*{username}"
@@ -49,7 +49,7 @@
 
     <div>
       <p>Password</p>
-      <input th:field="*{password}" type="password" placeholder="write your password here!">
+      <input th:field="*{password}" type="password" placeholder="Password...">
 
         <p th:each="error : ${#fields.errors('password')}"
             th:text="${error}"
